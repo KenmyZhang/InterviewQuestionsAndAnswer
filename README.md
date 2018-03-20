@@ -1,3 +1,1 @@
-# -InterviewQuestionsAndAnswer
-# InterviewQuestionsAndAnswer
 # InterviewQuestionsAndAnswer
