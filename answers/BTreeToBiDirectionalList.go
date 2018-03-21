@@ -1,109 +1,83 @@
 package main
 
-import(
+import (
 	"fmt"
 )
 
-type BTreeNode struct {
-	value    int
-	p_left  *BTreeNode
-	p_right *BTreeNode
+type BTree struct {
+	Value int
+	Left  *BTree
+	Right *BTree
 }
 
-var pHead *BTreeNode
-var pListIndex *BTreeNode
+var pHead *BTree
+var pListIndex *BTree
 
 // 创建二叉树
-func addBTreeNode(pCurrent *BTreeNode, value int) {
-	if nil == pCurrent {
-		pBTree := &BTreeNode{}
-		pBTree.p_left = nil
-		pBTree.p_right = nil
-		pBTree.value = value
-		pCurrent = pBTree
-	} else {
-		if pCurrent.value > value {
-			addBTreeNode(pCurrent.p_left, value)
-		} else if pCurrent.value < value {
-			addBTreeNode(pCurrent.p_right, value)
-		} else {
-			fmt.Println("重复加入节点:", value)
-		}
+func NewBTree(arr []int) *BTree {
+	var t *BTree
+	for _, val := range arr {
+		t = Insert(t, val)
 	}
+	return t
+}
+
+// 插入节点
+func Insert(t *BTree, val int) *BTree {
+	if t == nil {
+		return &BTree{val, nil, nil}
+	} else if val < t.Value {
+		t.Left = Insert(t.Left, val)
+	} else if val > t.Value {
+		t.Right = Insert(t.Right, val)
+	} else {
+		fmt.Println("repeat insert:", val)
+	}
+	return t
 }
 
 // 中序遍历二叉树
-func  MiddleOrderErgodicBTree(pCurrent *BTreeNode) {
-	if nil == pCurrent {
+func MiddleOrderErgodicBTree(t *BTree) {
+	if nil == t {
 		return
 	}
 
-	if nil != pCurrent.p_left {
-		MiddleOrderErgodicBTree(pCurrent.p_left)
+	if nil != t.Left {
+		MiddleOrderErgodicBTree(t.Left)
 	}
 
-	convertToDoubleList(pCurrent)
+	convertToDoubleList(t)
 
-	if nil != pCurrent.p_right {
-		MiddleOrderErgodicBTree(pCurrent.p_right)
+	if nil != t.Right {
+		MiddleOrderErgodicBTree(t.Right)
 	}
 }
 
 // 二叉树转换成List
-
-func convertToDoubleList(pCurrent *BTreeNode) {
-	pCurrent.p_left = pListIndex
+func convertToDoubleList(t *BTree) {
 	if nil != pListIndex {
-		pListIndex.p_right = pCurrent
+		pListIndex.Right = t
 	} else {
-		pHead = pCurrent
+		pHead = t
 	}
+	pListIndex = t
+	fmt.Println(t.Value)
+}
 
-	pListIndex = pCurrent
-
-	fmt.Println(pCurrent.value)
+//遍历链表
+func RangeList(pHead *BTree) {
+	if pHead != nil {
+		fmt.Println( pHead.Value)
+		RangeList(pHead.Right)
+	}
 }
 
 func main() {
-	var pRoot *BTreeNode
-	addBTreeNode(pRoot, 10)
-	addBTreeNode(pRoot, 4)
-	addBTreeNode(pRoot, 6)
-	addBTreeNode(pRoot, 8)
-	addBTreeNode(pRoot, 12)
-	addBTreeNode(pRoot, 14)
-	addBTreeNode(pRoot, 15)
-	addBTreeNode(pRoot, 16)
-	MiddleOrderErgodicBTree(pRoot)
+	arr := []int{3, 1, 5, 9, 3, 2, 5, 11, 19}
+	t := NewBTree(arr)
+        fmt.Println("tree")
+	MiddleOrderErgodicBTree(t)
+        fmt.Println("list")
+	RangeList(pHead)
 	return
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
