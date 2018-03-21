@@ -55,6 +55,7 @@ func MiddleOrderErgodicBTree(t *BTree) {
 
 // 二叉树转换成List
 func convertToDoubleList(t *BTree) {
+        t.Left = pListIndex;
 	if nil != pListIndex {
 		pListIndex.Right = t
 	} else {
