@@ -11,7 +11,7 @@ type BTree struct {
 	RightChild *BTree //当RightTag=0时RightChild代表右节点，RightTag=1时代表没有右节点RightChild代表的是后继节点
 }
 
-var pre BTree
+var pre *BTree
 
 func CreateBTree(bTree *BTree) {
 	var str string

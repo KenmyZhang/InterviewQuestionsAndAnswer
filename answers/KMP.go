@@ -54,7 +54,20 @@ func CalNext(str string, next []int) {
 	}
 }
 
-//
+/*
+下标i           0  1  2  3  4  5  6  7  8  9
+p(i)           a  b  c  d  a  a  b  c  a  b
+next[i]       -1  0  0  0  0  1  1  2  3  1
+优化的next[i]  -1  0  0  0  -1 1  0  0  3  0
+
+    next[0]= -1 意义：任何串的第一个字符的模式值规定为-1。
+    
+    next[j]= -1 意义：模式串T中下标为j的字符，如果与首字符相同，且j的前面的1—k个字符与开头的1—k个字符不等（或者相等但T[k]==T[j]）（1≤k<j），如：T=”abCabCad” 则 next[6]=-1，因T[3]=T[6].
+    
+    next[j]=k  意义：模式串T中下标为j的字符，如果j的前面k个字符与开头的k个字符相等，且T[j] != T[k] （1≤k<j）即T[0]T[1]T[2]......T[k-1]==T[j-k]T[j-k+1]T[j-k+2]…T[j-1]且T[j] != T[k].（1≤k<j）;
+    
+    next[j]=0 意义：除（1）（2）（3）的其他情况。
+*/
 func CalNextVal(str string, next []int) {
 	strLen := len(str)
 	next[0] = -1
