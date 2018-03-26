@@ -1,7 +1,5 @@
 ### Description
-    子串定位运算又称为模式匹配（Pattern Matching）或串匹配（String Matching）;在串匹配中，一般将主串称为目标串，将子串称为模式串。
-
-    从目标串S的第一个字符开始和模式串T的第一个字符进行比较，如果相等则进一步比较二者的后继字符，否则从目标串的第二个字符开始再重新与模式串T的第一个字符进行比较，以此类推，直到模式串T与目标串S中的一个子串相等，称为匹配成功，返回T在S中的位置；或者S中不存在值与T相等的子串，称匹配失败，返回-1.此算法也称为BF（Brute-Force）算法。
+    BF算法(Brute Force)是普通的模式匹配算法，BF算法的思想就是将目标串S的第一个字符与模式串T的第一个字符进行匹配，若相等，则继续比较S的第二个字符和 T的第二个字符；若不相等，则比较S的第二个字符和T的第一个字符，依次比较下去，直到得出最后的匹配结果。BF算法是一种蛮力算法。时间复杂度为O(M*N)。
 
     暴力匹配的思路，并假设现在文本串S匹配到 i 位置，模式串P匹配到 j 位置，则有：
 		如果当前字符匹配成功（即S[i] == P[j]），则i++，j++，继续匹配下一个字符；
@@ -13,4 +11,4 @@
     Given s="anmincd" t="abcde", return -1
 
 
-[answer](https://github.com/KenmyZhang/InterviewQuestionsAndAnswer/blob/master/answers/BruteForce.go)
+[代码链接](https://github.com/KenmyZhang/InterviewQuestionsAndAnswer/blob/master/answers/BruteForce.go)

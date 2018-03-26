@@ -13,7 +13,7 @@
     
     4=6=8=10=12=14=16。
 
-[answer](https://github.com/KenmyZhang/InterviewQuestionsAndAnswer/blob/master/answers/BTreeToBiDirectionalList.go)
+[代码链接](https://github.com/KenmyZhang/InterviewQuestionsAndAnswer/blob/master/answers/BTreeToBiDirectionalList.go)
 
 
   

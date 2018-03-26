@@ -5,21 +5,18 @@
     Given s="anmincd" t="mincd", return 2
     Given s="anmincd" t="abcde", return -1
 
-[answer](https://github.com/KenmyZhang/InterviewQuestionsAndAnswer/blob/master/answers/KMP.go)
+[代码链接](https://github.com/KenmyZhang/InterviewQuestionsAndAnswer/blob/master/answers/KMP.go)
 
 
 
 ### KMP
-
-* KMP算法由Donald Knuth、Vaughan Pratt、James H. Morris三人于1977年联合发表，故取这3人的姓氏命名此算法。
-
-* KMP算法是一种模式匹配算法的改进版，其通过减少匹配的次数以及使主串不回朔来减少字符串匹配的次数，从而较少算法的相应代价
+* KMP算法是一种模式匹配算法的改进版 ，由D.E.Knuth，J.H.Morris和V.R.Pratt同时发现，因此人们称它为克努特——莫里斯——普拉特操作（简称KMP算法）。算法的关键是利用匹配失败后的信息，尽量减少模式串与主串的匹配次数以达到快速匹配的目的。具体实现就是实现一个next()函数，函数本身包含了模式串的局部匹配信息。时间复杂度O(m+n)。
 
 * 失配时，模式串向右移动的位数为：已匹配字符数 - 失配字符的上一位字符所对应的最大相同前缀和后缀长度值
 
-* 问题的关键就是寻找模式串中最大长度的相同前缀和后缀，找到了模式串中每个字符之前的前缀和后缀公共部分的最大长度后，便可基于此匹配。
+* KMP算法中，对于每一个模式串我们会事先计算出模式串的内部匹配信息，在匹配失败时最大的移动模式串，以减少匹配次数。
 
-
+* 右移的距离在KMP算法中是如此计算的：在已经匹配的模式串子串中，找出最长的相同的前缀和后缀，然后移动使它们重叠。
 
 ### KMP的算法流程
 	假设现在文本串S匹配到 i 位置，模式串P匹配到 j 位置
