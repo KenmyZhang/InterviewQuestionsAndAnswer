@@ -19,16 +19,19 @@ func main() {
 	fmt.Println("Leaf num::", LeafNum(bTree))
 	fmt.Println("PreRange")
 	PreRange(bTree)
+	fmt.Println("")
 	fmt.Println("MidRange")
 	MidRange(bTree)
+	fmt.Println("")
 	fmt.Println("LastRange")
 	LastRange(bTree)
+	fmt.Println("")
 }
 
 func CreateBinaryTree() *BTree {
 	var bTree *BTree
 	var data string
- 	fmt.Scanln(&data)
+ 	fmt.Scan(&data)
  	if data == "#" {
  		bTree = nil
  	} else {
@@ -42,7 +45,7 @@ func CreateBinaryTree() *BTree {
 
  func PreRange(bTree *BTree) {
  	if bTree != nil {
- 		fmt.Println(bTree.Data)
+ 		fmt.Print(bTree.Data)
  		PreRange(bTree.Left)
  		PreRange(bTree.Right)
  	}
@@ -51,7 +54,7 @@ func CreateBinaryTree() *BTree {
  func MidRange(bTree *BTree) {
  	if bTree != nil {
  		MidRange(bTree.Left)
- 		fmt.Println(bTree.Data)
+ 		fmt.Print(bTree.Data)
  		MidRange(bTree.Right)
  	}
  }
@@ -60,7 +63,7 @@ func LastRange(bTree *BTree) {
  	if bTree != nil {
  		LastRange(bTree.Left)
  		LastRange(bTree.Right)
- 		fmt.Println(bTree.Data)
+ 		fmt.Print(bTree.Data)
  	}
 }
 
