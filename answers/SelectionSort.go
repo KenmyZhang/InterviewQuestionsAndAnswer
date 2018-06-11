@@ -1,26 +1,27 @@
 package main
 
 import (
-  "fmt"
+        "fmt"
 )
+
 func main() {
-    inputArr := []int{4,1,9,2,10,34,21}
-    SelectionSort(inputArr)
-    return
+        arr := []int{4,1,9,2,10,34,21}
+        rst := quickSort(arr)
+        for _, val := range rst {
+                fmt.Println(val)
+        }
 }
 
-func SelectionSort(nums []int) {
-    length := len(nums)
-    for i := 0; i < length; i++ {
-        min := i
-        for j := i + 1; j < length; j++ {
-            if nums[j] < nums[min] {
-                min = j
-            }
+func quickSort(input []int) []int {
+        min := 0
+        for i := 0; i < len(input) - 1; i++ {
+                min = i
+                for j := i + 1; j< len(input); j++ {
+                        if input[min] > input[j] {
+                                min = j
+                        }
+                }
+                input[i], input[min] = input[min], input[i]
         }
-        temp := nums[i]
-        nums[i] = nums[min]
-        nums[min] = temp
-    }
-    fmt.Println(nums)
+        return input
 }
