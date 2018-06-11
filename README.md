@@ -15,4 +15,4 @@
 
 AC多模式匹配算法
 
-[]!(https://baike.baidu.com/pic/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/9762418/0/f6428f8f81e6f19f513d92d5?fr=lemma&ct=single#aid=0&pic=f6428f8f81e6f19f513d92d5)
+![](https://baike.baidu.com/pic/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/9762418/0/f6428f8f81e6f19f513d92d5?fr=lemma&ct=single#aid=0&pic=f6428f8f81e6f19f513d92d5)
