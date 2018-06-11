@@ -5,10 +5,10 @@ import (
 )
 
 func main() {
-        arr := []int{4,1,9,2,10,34,21}
+        arr := []int{4,1,9,2,10,34,21,1,2, 0}
         rst := quickSort(arr)
         for _, val := range rst {
-                fmt.Println(val)
+                fmt.Printf("%v ", val)
         }
 }
 
