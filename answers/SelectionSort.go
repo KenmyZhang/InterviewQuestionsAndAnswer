@@ -6,13 +6,13 @@ import (
 
 func main() {
         arr := []int{4,1,9,2,10,34,21,1,2, 0}
-        rst := quickSort(arr)
+        rst := selectSort(arr)
         for _, val := range rst {
                 fmt.Printf("%v ", val)
         }
 }
 
-func quickSort(input []int) []int {
+func selectSort(input []int) []int {
         min := 0
         for i := 0; i < len(input) - 1; i++ {
                 min = i
